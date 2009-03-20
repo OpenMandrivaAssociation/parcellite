@@ -1,5 +1,5 @@
 %define name parcellite
-%define version 0.9
+%define version 0.9.1
 %define release %mkrel 1 
 
 Name:           %{name} 
