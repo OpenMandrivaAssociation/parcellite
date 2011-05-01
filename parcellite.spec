@@ -1,12 +1,15 @@
 %define name parcellite
-%define version 0.9.2
-%define release %mkrel 2
+%define version 1.0.2
+%define subver rc2
+%define release %mkrel 1
 
 Name:           %{name} 
 Summary:        Lightweight GTK+ clipboard manager
-Version:        %{version} 
-Release:        %{release} 
+Version:        %{version}%{subver} 
+Release:        %{release}
 Source0:        http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source1:	ru.po
+Patch0:		parcellite-pot.patch
 URL:            http://parcellite.sourceforge.net/
 
 Group:          Graphical desktop/GNOME 
@@ -22,6 +25,9 @@ for those who like simplicity.
 
 %prep 
 %setup -q
+%patch0 -p0
+rm -rf po/ru.po
+cp %SOURCE1 po/
 
 %build 
 %configure
@@ -43,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/%{name}.desktop
 %config(noreplace) %{_sysconfdir}/xdg/autostart/%{name}-startup.desktop
 %{_mandir}/man1/%{name}.1*
-
+%{_datadir}/pixmaps/*
 
 %post
 %update_desktop_database
