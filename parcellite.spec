@@ -1,7 +1,7 @@
 %define name parcellite
 %define version 1.0.2
 %define subver rc5
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:           %{name} 
 Summary:        Lightweight GTK+ clipboard manager
@@ -28,18 +28,23 @@ for those who like simplicity.
 %setup -q -a1
 %patch0 -p0
 
+rm -rf debian
+cd src
+rm -f *.o
+cd ..
+
 %build 
-%configure
-%make
+%configure2_5x
+make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
 
 %clean 
-rm -rf $RPM_BUILD_ROOT 
+rm -rf %{buildroot} 
 
 %files -f %{name}.lang
 %defattr(-,root,root)
@@ -49,9 +54,3 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/xdg/autostart/%{name}-startup.desktop
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/pixmaps/*
-
-%post
-%update_desktop_database
-
-%postun
-%clean_desktop_database
