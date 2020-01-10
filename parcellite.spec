@@ -22,7 +22,7 @@ for those who like simplicity.
 
 %prep 
 %setup -qn %{name}-%{version}%{?prerel} -a1
-%apply_patches
+%autopatch -p1
 
 rm -rf debian
 cd src
