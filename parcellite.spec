@@ -30,8 +30,8 @@ for those who like simplicity.
 #----------------------------------------------------------------------
 
 %prep 
-%setup -q -a1
-%apply_patches
+%setup -qn %{name}-%{version}%{?prerel} -a1
+%autopatch -p1
 
 rm -rf debian
 cd src
