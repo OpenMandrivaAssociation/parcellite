@@ -4,7 +4,7 @@ Version:	1.2.1
 Release:	1
 Group:		Graphical desktop/GNOME 
 License:	GPLv3+
-Url:		http://parcellite.sourceforge.net/
+Url:		https://parcellite.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}%{?prerel}.tar.gz
 #Source with correct pot file. You may use it for translate and make lang patch
 Source1:	parcellite_po.tar.gz
