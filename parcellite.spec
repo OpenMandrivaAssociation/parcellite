@@ -11,6 +11,11 @@ Source1:	parcellite_po.tar.gz
 #Patch0:		parcellite-ru.patch
 #Patch1:		parcellite-1.0.2rc5-rosa-glib.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gtk+-2.0)
 
